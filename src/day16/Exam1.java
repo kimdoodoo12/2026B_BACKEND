@@ -40,7 +40,7 @@ git push origin --delete <브랜치명>   # 원격 브랜치 삭제
     Ctrl + F5 또한 실행 단축키
  */
 
-package day01; // 패키징(폴더명)이면서 클래스의 위치 식별용도
+package day16; // 패키징(폴더명)이면서 클래스의 위치 식별용도
 
 public class Exam1 {
     // public: 공개용, 다른 패키지에서 사용 가능한 클래스
