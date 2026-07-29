@@ -31,7 +31,7 @@ System.out.println((int)z);
 당신의 키는 약 178cm 이군요. */
 Scanner scanner = new Scanner(System.in);
 System.out.print("키를 입력하세요: "); double height = scanner.nextDouble();
-System.out.println("당신의 키는 약" + height +"cm 입니다");
+System.out.println("당신의 키는 약" + (int)height +"cm 입니다");
 
 /*문제 4: Scanner를 이용해 서로 다른 3개의 정수를 입력받아, 이 값들의 합을 3으로 나눈 평균을 구하시오. 단, 결과는 소수점이 포함되도록 출력되어야 한다.
 입력 예시:
