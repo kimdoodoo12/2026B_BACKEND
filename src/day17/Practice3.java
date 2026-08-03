@@ -171,9 +171,10 @@ System.out.println("결과: " + ((userID.equals("user1") || userEmail.equals("ad
 출력 예시:
 등급:B */
 System.out.print("점수: "); int userScore = scanner.nextInt();
-if (userScore >= 90) {System.out.println("등급: "+"A");}
-else if (userScore >= 80) {System.out.println("등급: " + "B");}
-else {System.out.println("등급: " + "C");}
+System.out.println((userScore >= 90) ? "A" : (userScore >= 80) ? "B" : "C");
+// if (userScore >= 90) {System.out.println("등급: "+"A");}
+// else if (userScore >= 80) {System.out.println("등급: " + "B");}
+// else {System.out.println("등급: " + "C");}
 
 /*[문제 16] Scanner를 이용해 나이(int)를 입력받아, 20대(20세 이상 29세 이하)에 해당하는 경우 "이벤트 대상입니다."를, 그렇지 않으면 "이벤트 대상이 아닙니다."를 출력하시오.
 입력 예시:
