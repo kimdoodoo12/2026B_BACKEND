@@ -22,7 +22,7 @@ public class Exam3 {
         // new: 인스턴스화, 해당 클래스로 객체 만든다는 것
         Scanner scanner = new Scanner(System.in);
 
-        // 문자일타입 변수명 = 문자열 변환  
+        // 문자일타입 변수명 = 문자열 변환
         String str1 = scanner.next();
         System.out.printf("%s \n", str1);
 

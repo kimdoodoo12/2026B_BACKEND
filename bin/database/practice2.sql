@@ -275,4 +275,4 @@ create table reviews(
     rating tinyint unsigned not null,
     review_text text,
     created_at datetime default now()
-)
+);
