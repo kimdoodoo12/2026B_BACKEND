@@ -8,3 +8,63 @@
     2) DML 데이터 조작어 : select, update, delete, insert와 같이 테이블내 데이터들을 조작
     3) DCL 데이터 제어어 : commit, rollback, grant, revoke와 같이 데이터베이스 접근권한 / 계정관리
     4) TCL 트랜잭션 제어어 : DML 실행 결과물 취소/적용
+[DDL]
+    DROP:
+        drop database if exists 데이터베이스명;
+        drop table if exists 테이블명;
+    CREATE:
+        create database 데이터베이스명;
+        create table 테이블명(필드명 타입 제약조건);
+    ALTER:
+        alter table 테이블명 add 필드명 새로운타입
+        alter table 테이블명 modify 새로우타입
+        alter table 테이블명 change 기존필드명 새로운필드명 새로운타입
+    RENAME:
+        rename table 테이블명 to 새로운 테이블명;
+    TRUNCATE:
+        truncate table 초기화테이블명;
+[타입]
+    정수: tinyint, smallint, mediumint, int, bigint, unsigned int
+    실수: float, double, decimal(문자열실수)
+    날짜: date, 시간: time, 날짜/시간: datetime
+    문자열: char(n), varchar(n), text, longtext
+        * char(3): 고정길이 3글자, [사][과][]
+        * varchar(3): 가변의 3글자, [사][과]
+    논리: boolean(tinyint)
+
+[제약조건]
+    1. not null
+    2. unique
+    3. default 기본값
+    4. auto_increment, *PIMARY KEY 인 경우만 사용 가능: 레코드 등록시 자동 증가 번호 대입
+    5. constraint primary key(PK 필드명);
+    6. constraint foreign key (FK 필드명) reference 참조테이블명 (PK 필드명)
+
+[참조 옵션]
+    1. on delete/update cascade; PK가 삭제되면 FK 레코드도 같이 삭제
+    2. on delete/update retrict (생략시 기본값); PK가 참조중이면 삭제 불가능
+    3. on delete/udpate set null;   PK 삭제되면 FK 값은 NULL
+
+[DML]
+    1. insert into 테이블명(필드명, 필드명) values(값1, 값2);
+        -insert into 테이블명 values(값1, 값2, 값3);    모든 필드에 값 대입시 필드명 생략가능
+        -insert into 테이블명 values(값),(값)           2개 이상 레코드 등록
+    2. select 필드명 from 테이블명 where 조건
+        - select * from 테이블명                        모든 필드의 레코드 조회
+    3. update 테이블명 set 필드명 = 수정할 값, 필드명 = 수정할 값 where 조건
+    4. delete from 테이블명 where 조건
+
+[연산자]
+    1. as 별칭 (복잡한 필드명/테이블명을 간단하게 별명 만들기), 필드명 as 별칭, 테이블명 as 별칭, *주의할점: 생략가능
+    2. distinct: 조회결과 (필드값) 중복 제거
+    3. 산술연산자: + - / * div(몫) mod(나머지)
+    4. 비교연산자: = != > < >= <=
+    5. 논리연산자: and or not
+        *between 시작값 and 끝값, * in(값1, 값2, 값3)
+    6. null연산자:
+        필드명 = null <불가능> 필드명 != null <불가능>
+        필드명 is null <가능> 필드명 is not null <가능>
+    7. 문자열패턴:
+        % 모든문자대응      , 김%: 김으로 시작하는 N글자 조합
+        _개수만큼 문자대응  , 김_: 김으로 시작하는 2글자 조합
+
