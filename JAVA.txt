@@ -1,0 +1,27 @@
+[MVC 패턴]
+    1. 정의: 소프트웨어 개발에서 사용되는 디자인패턴으로 세가지 주요역할 분리하여 코드의 모듈화(조각)한다.
+    2. 목적: 협엽간의 코드와 파일들을 mvc패턴 따라 구성하여 효율성 높인다.
+    3. 장점: 유지보수, 모듈화 단일책임기능(SRP: 단일 책임 원칙 - 객체지향 5대원칙(SOLID)) 등
+    4. 단점: 분리함에 따라 관리 복잡도 높다
+    5. 예시:
+        1인식당: 사장님이 혼자서 서빙하고 요리하고 재료준비한다.
+        직원이 있는 식당: 서빙직원, 요리직원, 재료관리직원 등 각각 역할별로 담당한다. - 단일 책임 원칙
+    6. 사용처: 웹/앱 백엔드 사용한다.
+    7. 레이어/계층
+        VIEW            : 입출력담당, HTML/CSS/JSS/REACT/FLUTTER 등
+        CONTROLLER      : model과 view 사이의 제어/로직/유효성검사/전달 담당
+        MODEL           : 데이터관리 담당, JAVA/PYTHON/NODE.JS
+    8. 이동객체
+        DTO : 서로 다른 레이어/계층 간에 데이터객체, setter and getter 지원
+        VO  : 서로 다른 레이어/계층 간에 데이터객체, getter 지원
+    9. 흐름
+        게시물쓰기:     view --DTO/VO--> controller --DTO/VO--> DAO/RESPOSITORY <--> 데이터베이스(SQL)
+        게시물조회:     view <--DTO/VO-- controller <--DTO/VO-- DAO/RESPOSITORY <--> 데이터베이스(SQL)
+    10. 패키지구성
+        프로젝트폴더
+        -> controller 폴더
+        -> view 폴더
+        -> model 폴더
+            -> dao 폴더
+            -> dto 폴더
+        -> AppStart 클래스

@@ -114,7 +114,9 @@ delete from orders where customer = '이서연';
 -- [문제 8]books 테이블에서 재고(stock)가 0 이하(<= 0) 인 도서를 삭제하세요.
 
 select * from books where stock <= 0;
-delete from books where stock <= 0; ------------ 참조키?
+
+DESCRIBE books; DESCRIBE orders;
+delete from books where stock <= 0 ;    -- orders 테이블에서 삭제될 books_id가 참조되고 있어서 삭제할 수 없음
 
 -- [문제 9]orders 테이블에서 주문수량(order_qty)이 3 이상(>=) 인 주문 데이터를 삭제하세요.
 
