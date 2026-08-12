@@ -73,6 +73,7 @@ interface CustomerControl extends Buy, Sell{
 }
 
 class Customer2 implements CustomerControl{
+    // buy + sell 상속받은 CustomerControl 구현한다
     @Override
     public void method1() {
     }
