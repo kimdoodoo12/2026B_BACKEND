@@ -46,7 +46,7 @@ select * from table1 t1 join table2 t2 on t1.num_pk = t2.num_fk;
 # OUTER JOIN
 # 1. 테이블A LEFT JOIN 테이블B on 조인조건, 왼쪽 테이블에 모든 레코드와 오른쪽 테이블에 교집합 되는 조회
 select * from table1 t1 left OUTER join table2 t2 on t1.num_pk = t2.num_fk; -- 8개
-# 2. 테이블A RIGHT OUTER JOIN 테이블 B ON, 오른쪽 테이블에 모든 레코드
+# 2. 테이블A RIGHT OUTER JOIN 테이블B ON, 오른쪽 테이블에 모든 레코드
 select * from table1 t1 right outer join table2 t2 on t1.num_pk = t2.num_fk; -- 5개
 # OUTER 생략가능 (left 또는 right이 있을 경우)
 select * from table1 t1 RIGHT join table2 t2 on t1.num_pk = t2.num_fk;
@@ -57,3 +57,4 @@ select * from table1 t1 right join table2 t2 on t1.num_pk = t2.num_fk;
 
 # 차집합, 테이블A LEFT JOIN 테이블B on 조인조건 WHERE 테이블B.FK IS NULL
 select * from table1 t1 left JOIN table2 t2 on t1.num_pk = t2.num_fk WHERE num_fk is null;
+select * from table1 t1 RIGHT JOIN table2 t2 on t1.num_pk = t2.num_fk WHERE num_pk is null;

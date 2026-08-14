@@ -87,7 +87,11 @@ select customer, count(*) from orders GROUP BY customer;
 -- [문제 11 ] orders 테이블에서 도서번호(book_id)별 총 주문수량 합계를 조회하세요. (book_id, sum)
 select book_id, count(*) as total_order from orders GROUP BY book_id;
 -- [문제 12 ] orders에서 고객별 총 주문수량 합계가 5 이상인 고객만 조회하세요. ( 출력: customer, 총주문수량, 조건: HAVING 사용 )
+select customer, count(*) as total_order from orders GROUP BY customer having count(*) >= 5;
 
 -- [문제 13 ] orders에서 도서번호(book_id)별 주문 건수가 3회 이상인 도서만 조회하세요.( 출력: book_id, 주문건수 )
+select book_id, count(*) total_order from orders GROUP BY book_id having count(*) >= 3;
 -- [문제 14 ] books 테이블에서 가격(price) 내림차순으로 정렬하여 조회하세요.
+select price from books ORDER BY price desc;
 -- [문제 15 ] books 테이블에서 가격(price) 내림차순 정렬 후 상위 3권만 조회하세요. (ORDER BY + LIMIT)
+select title, price from books ORDER BY price desc limit 3;
