@@ -26,11 +26,59 @@ public class Exam3 {
             
         }
 
-        // [2] 1초에 한번씩 출력 발생
+        // 1초에 한번씩 출력 발생
         for (int i = 1; i <=5; i++){
             System.out.println("띠링");
             try{Thread.sleep(1000);}catch(Exception e){}
         }
 
+        // [2] 멀티스레드 방법1: 익명구현체, new 인터페이스타입(){오버라이딩};
+        Runnable runnable = new Runnable() {
+            // 새로운 스레드가 처리할 메소드 = run() 오버라이딩(재정의)
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                for (int i = 1; i <= 5; i++){
+                    System.out.println("새로운 첫번째 쓰레드" + i);
+                    try{Thread.sleep(1000);}catch(Exception e){}
+                }
+            }
+        }; // 익명구현체 끝
+        Thread thread1 = new Thread(runnable);  // new Thread(익명구현체)
+        thread1.start();    // 새로운 스레드가 run() 메소드 호출 = start(), MAIN /TASK1 (2)
+
+        // [3] 멀티스레드 방법2: 구현체
+
+        작업스레드2 작업스레드2 = new 작업스레드2();
+        Thread thread2 = new Thread(작업스레드2);
+        thread2.start();    // MAIN / TASK1 / TASK2 (3개의 쓰레드)
+
+        // [4] 멀티스레드 방법3: 상속
+
+        작업스레드3 thread3 = new 작업스레드3();
+        thread3.start();    // MAIN / TASK1 / TASK2 / TASK3 (4개의 쓰레드) = 병렬처리 (처리 순서 보장 없다)
+
+    }
+}
+
+class 작업스레드2 implements Runnable{
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        for (int i = 1; i <= 5; i++){
+            System.out.println("새로운 두번째 쓰레드" + i);
+            try{Thread.sleep(1000);}catch(Exception e){}
+        }
+    }
+}
+
+class 작업스레드3 extends Thread{
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        for (int i = 1; i <= 5; i++){
+            System.out.println("새로운 세번째 쓰레드" + i);
+            try{Thread.sleep(1000);}catch(Exception e){}
+        }
     }
 }
